@@ -1,5 +1,6 @@
 package Daos;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -112,9 +113,23 @@ public class UserDaoImpl implements UserDao{
 			}
 	
 		}
+		@Override
+		public Users Login(String email, String password) throws SQLException {
+		
+		try(Session s = HibernateUtil.getSession()){
+					String hql = "from Users where emailAddress = :email and pass= :pass";
+					Query<Users> q = s.createQuery(hql,Users.class);
+					q.setParameter("email", email);
+					q.setParameter("pass", password);
+					Users m = q.getSingleResult();
+					return m;
+					
+				}
+			}
+		}
 		
 		
-	}
+	
 	
 	
 	
