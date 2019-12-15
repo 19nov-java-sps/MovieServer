@@ -1,5 +1,6 @@
 package com.revature.controllers;
 
+
 import java.sql.SQLException;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.revature.exceptions.TrackNotFoundException;
 import com.revature.exceptions.UserNotFoundException;
-import com.revature.models.Employee;
+
 import com.revature.models.Track;
 import com.revature.models.Users;
 import com.revature.services.TrackService;
@@ -62,7 +63,7 @@ public class UserController {
 	
 	@PostMapping("/login")
 	@ResponseBody
-	public void addUser(@RequestParam("emailaddress")String emailaddress, @RequestParam("password")String password) throws SQLException {
+	public void login(@RequestParam("emailaddress")String emailaddress, @RequestParam("password")String password) throws SQLException {
 	
 		Users u=service.Login(emailaddress,password);
 		
@@ -72,15 +73,6 @@ public class UserController {
 			String token =u.getUserId()+":"+u.isAdmin();
 	
 		
-			@GetMapping("/response-entity")
-			public Mono<ResponseEntity<String>> usingResponseEntityBuilder() {
-			    String responseHeaderKey = "Authorization";
-			    String responseHeaderValue = token;
-			    String responseBody = "Response with header using ResponseEntity (builder)";
-			 
-			    return Mono.just(ResponseEntity.ok()
-			      .header(responseHeaderKey, responseHeaderValue)
-			      .body(responseBody));
 			}
 		
 		
