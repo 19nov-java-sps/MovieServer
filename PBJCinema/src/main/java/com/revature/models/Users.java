@@ -46,16 +46,25 @@ public class Users {
 		
 	}
 	
-	public Users(String firstName, String lastName, String emailAddress, String password, boolean isAdmin) {
+	public Users(String firstName, String lastName, String emailAddress, String password) {
 		super();
 		
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.emailAddress = emailAddress;
 		this.password = password;
-		this.isAdmin = isAdmin;
+		this.isAdmin = false;
 	}
 
+	public Users(int userid,String firstName, String lastName, String emailAddress, String password, boolean isAdmin) {
+		super();
+		this.userId=userid;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.emailAddress = emailAddress;
+		this.password = password;
+		this.isAdmin = isAdmin;
+	}
 
 
 	@Override
