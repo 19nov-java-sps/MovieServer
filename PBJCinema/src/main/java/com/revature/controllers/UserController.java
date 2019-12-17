@@ -55,29 +55,17 @@ public class UserController {
 	
 	@PostMapping("/users")
 	@ResponseBody
-	public void addUser(@RequestParam("firstname")String firstname, @RequestParam("lastname")String lastname, @RequestParam("emailaddress")String emailaddress, @RequestParam("password") String password) {
+	public void addUser(@RequestParam("firstName")String firstname, @RequestParam("lastName")String lastname, @RequestParam("email")String emailaddress, @RequestParam("password") String password) {
 		Users newUser= new Users(firstname, lastname, emailaddress,password);
 		service.createAccount(newUser);
-	}
-	
-	
-	@PostMapping("/login")
-	@ResponseBody
-	public void login(@RequestParam("emailaddress")String emailaddress, @RequestParam("password")String password) throws SQLException {
-	
-		Users u=service.Login(emailaddress,password);
-		
-		
 
-		if(u!=null) {
-			String token =u.getUserId()+":"+u.isAdmin();
+	}
+
 	
 		
-			}
 		
 		
-		
-	}
+	
 	
 	
 	

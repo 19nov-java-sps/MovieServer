@@ -7,7 +7,7 @@ import com.revature.services.UserService;
 
 import java.sql.SQLException;
 public class Driver {
-public static void main(String [] args) {
+public static void main(String [] args) throws SQLException {
 	
 	MovieService mvservice= new MovieService();
 	
@@ -16,9 +16,9 @@ public static void main(String [] args) {
 	ReviewService reservice= new ReviewService();
 	Users Jia = new Users("Jia","Li","Jli@aol.com","pass");
 	
+	System.out.print(userservice.Login("Bucci490@hotmail.com", "1234"));
 	
-	
-	userservice.createAccount(Jia);
+	//userservice.createAccount(Jia);
 	//int reviewId, int movieId, int userId, String postTitle, String postBody
 	
 //Reviews review= new Reviews(1, 1, 2, "Harry Potter Rules", "One of the best movies of all time");
