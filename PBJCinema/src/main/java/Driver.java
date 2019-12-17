@@ -14,15 +14,18 @@ public static void main(String [] args) {
 	UserService userservice= new UserService();
 	
 	ReviewService reservice= new ReviewService();
-	//Users Peter = new Users("Peter","Nyugen","Pballs@aol.com","pass",true);
+	Users Jia = new Users("Jia","Li","Jli@aol.com","pass");
 	
+	
+	
+	userservice.createAccount(Jia);
 	//int reviewId, int movieId, int userId, String postTitle, String postBody
 	
-Reviews review= new Reviews(1, 1, 2, "Harry Potter Rules", "One of the best movies of all time");
+//Reviews review= new Reviews(1, 1, 2, "Harry Potter Rules", "One of the best movies of all time");
 //reservice.editReview(2, "Harry Potter is the best", "Great Flick");
 	
 	//reservice.deleteReviewById(2);
-reservice.createReview(review);
+//reservice.createReview(review);
 	
 	
 	//Movies movie= new Movies(5, "Harry Potter and The Sorcerors Stone","01/21/1998","Harry Potter", 95);
@@ -32,8 +35,9 @@ reservice.createReview(review);
 	//System.out.print(movie.getMovieId());
 	
 	//int movieId, String title, String releaseDate, String summary, int length
-	//Movies Pedro= new Movies(1,"Pedro","01/2009","Pedro",95);
+	//Movies Pedro= new Movies(2,"Pedro","01/2009","Pedro",95);
+	//System.out.print(mvservice.getMovieById(1));
 	//mvservice.addMovie(Pedro);
-	
+
 }
 }

@@ -1,5 +1,7 @@
 package com.revature.controllers;
 
+
+import java.sql.SQLException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.revature.exceptions.TrackNotFoundException;
 import com.revature.exceptions.UserNotFoundException;
+
 import com.revature.models.Track;
 import com.revature.models.Users;
 import com.revature.services.TrackService;
@@ -48,6 +52,18 @@ public class UserController {
 		}
 		return u;
 	}
+	
+	@PostMapping("/users")
+	@ResponseBody
+	public void addUser(@RequestParam("firstname")String firstname, @RequestParam("lastname")String lastname, @RequestParam("emailaddress")String emailaddress, @RequestParam("password") String password) {
+		Users newUser= new Users(firstname, lastname, emailaddress,password);
+		service.createAccount(newUser);
+	}
+	
+	
+		
+		
+		
 	
 	
 	
