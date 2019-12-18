@@ -2,29 +2,14 @@ package com.revature.daos;
 import com.revature.utlities.HibernateUtil;
 import java.sql.SQLException;
 import java.util.List;
-
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-
-import org.apache.catalina.User;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
-
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
-
-import org.hibernate.query.Query;
-import org.apache.log4j.Logger;
-import org.hibernate.Session;
 import org.hibernate.Transaction;
-
-
-
-
-
 import com.revature.models.Users;
+
 public class UserDaoImpl implements UserDao{
 	private static Logger log = Logger.getRootLogger();
 	@Override
