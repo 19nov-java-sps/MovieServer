@@ -9,10 +9,7 @@ import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
-
-import com.revature.models.Movies;
 import com.revature.models.Reviews;
-import com.revature.models.Users;
 import com.revature.utlities.HibernateUtil;
 
 public class ReviewDaoImpl implements ReviewDao {
