@@ -65,6 +65,17 @@ public class ReviewDaoImpl implements ReviewDao {
 	}
 
 	@Override
+	public List<Reviews> getReviewsByUserId(int userId) {
+		try(Session s = HibernateUtil.getSession()) {
+			String hql = "from Reviews where userId = :id";
+			Query<Reviews> p = s.createQuery(hql, Reviews.class);
+			p.setParameter("id",userId);
+		
+			List<Reviews> e =p.list();
+			return e;
+		}
+	}
+	@Override
 	public Reviews getReviewsById(int reId) {
 		try(Session s = HibernateUtil.getSession()) {
 			String hql = "from Reviews where reviewId = :id";
@@ -72,15 +83,16 @@ public class ReviewDaoImpl implements ReviewDao {
 			p.setParameter("id",reId);
 			Reviews e = p.getSingleResult();
 			return e;
+			
 		}
 	}
 
-	@Override
+	
 	public boolean editReview(int reId, String postTitle, String postBody) {
 		try(Session s = HibernateUtil.getSession()){
 			Transaction tx = s.beginTransaction();
 			Reviews u = this.getReviewsById(reId);
-//			Employee e = new Employee();
+		
 			u.setPostTitle(postTitle);
 			u.setPostBody(postBody);
 			s.update(u);
@@ -89,6 +101,9 @@ public class ReviewDaoImpl implements ReviewDao {
 			return true;
 		}
 	}
+
+
 	
+
 
 }
