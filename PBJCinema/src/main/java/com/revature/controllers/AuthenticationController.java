@@ -11,11 +11,9 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.revature.models.Employee;
 import com.revature.models.Users;
 import com.revature.services.UserService;
 
@@ -31,9 +29,11 @@ public class AuthenticationController {
 	private UserService service;
 	
 	//AuthenticationController ac= new AuthenticationController();
-	@PostMapping("/login")
+	@PostMapping(value="/login", consumes=MediaType.APPLICATION_FORM_URLENCODED_VALUE)
 	@ResponseBody
-public void login(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+
+
+	public void login(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 
 		
 	this.authenticate(request, response);
