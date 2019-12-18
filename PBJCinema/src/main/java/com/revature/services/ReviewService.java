@@ -22,13 +22,15 @@ public class ReviewService {
 	public boolean deleteReviewById(int reId) {
 		return service.deleteReviewById(reId);
 	}
-	public Reviews getReviewsById(int reId) {
-		return service.getReviewsById(reId);
-	}
+	
 	public boolean editReview(int reId, String postTitle, String postBody) {
 		
 		return service.editReview(reId, postTitle, postBody);
 		
+	}
+	public List<Reviews> getUserReview(int id) {
+		
+	return service.getReviewsByUserId(id);
 	}
 
 		

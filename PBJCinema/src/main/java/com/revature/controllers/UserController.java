@@ -6,11 +6,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -52,15 +56,31 @@ public class UserController {
 		}
 		return u;
 	}
+	/*
 	
 	@PostMapping("/users")
 	@ResponseBody
-	public void addUser(@RequestParam("firstName")String firstname, @RequestParam("lastName")String lastname, @RequestParam("email")String emailaddress, @RequestParam("password") String password) {
+	public void addUser(@RequestParam("firstname")String firstname, @RequestParam("lastname")String lastname, @RequestParam("emailaddress")String emailaddress, @RequestParam("password") String password) {
 		Users newUser= new Users(firstname, lastname, emailaddress,password);
 		service.createAccount(newUser);
 
 	}
-
+*/
+	
+	
+	
+	
+	 @RequestMapping(value = "/users", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
+	    public ResponseEntity<String> createEmployee(@RequestBody Users user) 
+	    {
+	  
+	
+		 
+		 
+		 
+	        service.createAccount(user);
+	        return new ResponseEntity<String>(HttpStatus.CREATED);
+	    }
 	
 		
 		
