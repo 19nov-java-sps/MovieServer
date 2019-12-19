@@ -40,18 +40,7 @@ public class UserDaoImpl implements UserDao{
 			return true;
 		}
 
-		/*
-	public boolean deleteUserById(int userid) {
-		
-		try(Session s = HibernateUtil.getSession()){
-			Transaction tx = s.beginTransaction();
-			s.delete(new Users(get));
-			tx.commit();
-		}
-		
-	}
-	
-	*/
+
 		public Users getUserById(int userid) {
 			
 			try(Session s = HibernateUtil.getSession()) {
