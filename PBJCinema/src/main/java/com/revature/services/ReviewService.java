@@ -32,6 +32,12 @@ public class ReviewService {
 		
 	return service.getReviewsByUserId(id);
 	}
+	public void editReview(Reviews review) {
+	
+		
+		
+		
+	}
 
 		
 }

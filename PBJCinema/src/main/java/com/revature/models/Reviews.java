@@ -23,6 +23,10 @@ private int movieId;
 
 private int userId;
 
+private String postTitle;
+
+private String postBody;
+
 
 public Reviews() {
 	
@@ -116,7 +120,5 @@ public Reviews(int reviewId, int movieId, int userId, String postTitle, String p
 	this.postTitle = postTitle;
 	this.postBody = postBody;
 }
-private String postTitle;
-private String postBody;
 
 }

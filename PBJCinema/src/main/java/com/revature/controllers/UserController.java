@@ -47,18 +47,7 @@ public class UserController {
 		}
 		return u;
 	}
-	/*
-	
-	@PostMapping("/users")
-	@ResponseBody
-	public void addUser(@RequestParam("firstname")String firstname, @RequestParam("lastname")String lastname, @RequestParam("emailaddress")String emailaddress, @RequestParam("password") String password) {
-		Users newUser= new Users(firstname, lastname, emailaddress,password);
-		service.createAccount(newUser);
 
-	}
-*/
-	
-	
 	
 	
 	 @RequestMapping(value = "/users", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
