@@ -8,16 +8,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
-
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.revature.exceptions.ReviewNotFoundException;
-import com.revature.exceptions.UserNotFoundException;
 import com.revature.models.Reviews;
-
 import com.revature.services.ReviewService;
 
 
@@ -55,13 +51,22 @@ public class ReviewController {
 	    }
 	
 	
-
+		@RequestMapping(method=RequestMethod.GET, value="/reviews/{id}")
+	@ResponseBody
+	public Reviews getReviewsById(@PathVariable("id")int id) {
+		Reviews u =service.getReviewsById(id);
+		if(u == null) {
+			throw new ReviewNotFoundException();
+		}
+		return u;
+	}
+	
 		
 	 
 		
-		@RequestMapping(method=RequestMethod.GET, value="/reviews/{id}")
+		@RequestMapping(method=RequestMethod.GET, value="users/{userId}/reviews")
 	@ResponseBody
-	public List<Reviews> getReviewByUserId(@PathVariable("id")int id) {
+	public List<Reviews> getReviewByUserId(@PathVariable("userId")int id) {
 		List<Reviews> u =service.getUserReview(id);
 		if(u == null) {
 			throw new ReviewNotFoundException();
