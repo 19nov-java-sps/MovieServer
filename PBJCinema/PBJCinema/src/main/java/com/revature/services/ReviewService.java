@@ -38,6 +38,9 @@ public class ReviewService {
 		
 		
 	}
+	public Reviews getReviewsById(int id) {
+		return service.getReviewsById(id);
+	}
 
 		
 }
