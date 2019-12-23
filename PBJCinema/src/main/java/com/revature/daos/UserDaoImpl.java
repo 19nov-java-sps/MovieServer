@@ -69,14 +69,37 @@ public class UserDaoImpl implements UserDao{
 	
 		
 		@Override
-		public boolean updateUser(int userid, String email, String password) {
+		public boolean updateUser(int userid, String email, String password, String firstName, String lastName) {
 			
 			try(Session s = HibernateUtil.getSession()){
 				Transaction tx = s.beginTransaction();
 				Users u = this.getUserById(userid);
-//				Employee e = new Employee();
+
+				if(email!=null) {
 				u.setEmailAddress(email);
+				}
+				else {
+					u.setEmailAddress(u.getEmailAddress());
+				}
+				if(password!= null && password!=" ") {
 				u.setPassword(password);
+				}
+				else {
+					u.setPassword(u.getPassword());
+				}
+				if(firstName!= null && firstName!= " ") {
+					u.setFirstName(firstName);
+				}
+				else {
+					u.setFirstName(u.getFirstName());
+				}
+				if(lastName!= null && lastName!= " ") {
+				u.setLastName(lastName);
+				}
+				
+				else {
+					u.setLastName(u.getLastName());
+				}
 				s.update(u);
 				tx.commit();
 				

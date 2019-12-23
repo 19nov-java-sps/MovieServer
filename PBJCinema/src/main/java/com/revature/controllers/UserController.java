@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -64,14 +66,26 @@ public class UserController {
 	        return new ResponseEntity<String>(HttpStatus.CREATED);
 	    }
 	
+
+		@PostMapping("/users/{id}")
+		@ResponseBody
+		public void  DeleteUserById(@PathVariable("id")int id) {
+			service.deleteUserById(id);
+			
 		
-		
-		
+		}
 	
 	
 	
+
+		 @RequestMapping(value = "/users/update/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
+		    public void updateUser(@RequestBody Users user, @PathVariable("id")int id) {
+			 
+service.updateUser(id,user.getEmailAddress(), user.getPassword(), user.getFirstName(), user.getLastName());
 	
 	
 	
-	
+}
+
+
 }

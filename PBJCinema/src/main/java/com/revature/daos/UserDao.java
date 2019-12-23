@@ -13,8 +13,9 @@ public interface UserDao {
 	public boolean createAccount(Users u);
 	public int deleteUserById(int userId);
 	public Users getUserById(int userId);
-	boolean updateUser(int userid, String email, String password);
+	//boolean updateUser(int userid, String email, String password);
 	public Users Login(String email, String password) throws SQLException;
+	public boolean updateUser(int userid, String email, String password, String firstName, String lastName);
 	
 	
 	
