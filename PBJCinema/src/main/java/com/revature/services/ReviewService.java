@@ -23,9 +23,9 @@ public class ReviewService {
 		return service.deleteReviewById(reId);
 	}
 	
-	public boolean editReview(int reId, String postTitle, String postBody) {
+	public boolean editReview(int reId, String postTitle, String postBody, String movieTitle) {
 		
-		return service.editReview(reId, postTitle, postBody);
+		return service.editReview(reId, postTitle, postBody, movieTitle);
 		
 	}
 	public List<Reviews> getUserReview(int id) {

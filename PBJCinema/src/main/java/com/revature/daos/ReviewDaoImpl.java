@@ -85,13 +85,14 @@ public class ReviewDaoImpl implements ReviewDao {
 	}
 
 	
-	public boolean editReview(int reId, String postTitle, String postBody) {
+	public boolean editReview(int reId, String postTitle, String postBody, String movieTitle) {
 		try(Session s = HibernateUtil.getSession()){
 			Transaction tx = s.beginTransaction();
 			Reviews u = this.getReviewsById(reId);
 		
 			u.setPostTitle(postTitle);
 			u.setPostBody(postBody);
+			u.setMovieTitle(movieTitle);
 			s.update(u);
 			tx.commit();
 			

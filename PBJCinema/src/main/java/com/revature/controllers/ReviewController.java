@@ -45,8 +45,9 @@ public class ReviewController {
 	 int id= review.getReviewId();
 	 String postBody= review.getPostBody();
 	 String postTitle= review.getPostTitle();
+	 String movieTitle=review.getMovieTitle();
 	
-		 service.editReview(id,postTitle,postBody);
+		 service.editReview(id,postTitle,postBody, movieTitle);
 	        return new ResponseEntity<String>(HttpStatus.CREATED);
 	    }
 	
