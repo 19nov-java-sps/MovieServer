@@ -16,7 +16,7 @@ public static void main(String [] args) throws SQLException {
 	ReviewService reservice= new ReviewService();
 	Users Jia = new Users("Jia","Li","Jli@aol.com","pass");
 	
-	reservice.editReview(2, "Johnny", "Hey");
+	
 	
 	//System.out.print(userservice.Login("Bucci490@hotmail.com", "1234"));
 	
