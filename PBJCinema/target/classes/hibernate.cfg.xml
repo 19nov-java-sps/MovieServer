@@ -19,6 +19,7 @@
 		<mapping class="com.revature.models.Users"/>
 		<mapping class="com.revature.models.Movies"/>
 		<mapping class="com.revature.models.Reviews"/>
+		<mapping class="com.revature.models.Favorites"/>
 		
 		
 	</session-factory>
