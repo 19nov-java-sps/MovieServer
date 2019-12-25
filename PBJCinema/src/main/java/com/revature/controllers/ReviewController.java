@@ -61,7 +61,14 @@ public class ReviewController {
 		}
 		return u;
 	}
+		@RequestMapping(method=RequestMethod.POST, value="/reviews/{id}")
+	@ResponseBody
+	public boolean deleteReviewById(@PathVariable("id")int id) {
+		service.deleteReviewById(id);
+	return true;
+	}
 	
+		
 		
 	 
 		
@@ -74,6 +81,8 @@ public class ReviewController {
 		}
 		return u;
 	}
+		
+		
 	
 	
 	
