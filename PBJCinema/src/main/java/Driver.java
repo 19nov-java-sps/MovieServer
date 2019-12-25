@@ -40,6 +40,8 @@ public static void main(String [] args) throws SQLException {
 	//Movies Pedro= new Movies(2,"Pedro","01/2009","Pedro",95);
 	//System.out.print(mvservice.getMovieById(1));
 	//mvservice.addMovie(Pedro);
+	
+reservice.editReview(2, "Harry Potter and the Deathly Hollows", "Damn Good", "Harry Potter 4");
 
 }
 }
