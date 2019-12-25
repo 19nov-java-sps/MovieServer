@@ -23,11 +23,12 @@ private int movieId;
 
 private int userId;
 
+
 private String postTitle;
 
 private String postBody;
 
-
+private String movieTitle;
 public Reviews() {
 	
 }
@@ -112,13 +113,25 @@ public Reviews(int movieId, String postTitle, String postBody) {
 	this.postTitle = postTitle;
 	this.postBody = postBody;
 }
-public Reviews(int reviewId, int movieId, int userId, String postTitle, String postBody) {
+public Reviews(int reviewId, int movieId, int userId, String postTitle, String postBody, String movieTitle) {
 	super();
 	this.reviewId = reviewId;
 	this.movieId = movieId;
 	this.userId = userId;
 	this.postTitle = postTitle;
 	this.postBody = postBody;
+	this.movieTitle=movieTitle;
+}
+
+
+public void setMovieTitle(String movieTitle) {
+	this.movieTitle = movieTitle;
+}
+
+
+public String getMovieTitle() {
+	// TODO Auto-generated method stub
+	return movieTitle;
 }
 
 }
