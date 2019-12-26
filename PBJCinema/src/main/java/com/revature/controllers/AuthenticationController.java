@@ -17,7 +17,7 @@ import com.revature.services.UserService;
 
 
 
-@CrossOrigin(origins="localhost:4200",maxAge = 3600)
+@CrossOrigin(origins="http://localhost:4200",maxAge = 3600)
 @RestController
 @RequestMapping("/login")
 

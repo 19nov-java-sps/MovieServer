@@ -13,13 +13,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.revature.exceptions.ReviewNotFoundException;
 import com.revature.models.Reviews;
 import com.revature.services.ReviewService;
 
 
-@Controller
-@CrossOrigin(origins="localhost:4200")
+
+@CrossOrigin(origins="http://localhost:4200",maxAge = 3600)
+@RestController
 public class ReviewController {
 
 	@Autowired
@@ -49,8 +52,8 @@ public class ReviewController {
 	 String movieTitle=review.getMovieTitle();
 	
 		 service.editReview(id,postTitle,postBody, movieTitle);
-		 HttpHeaders responseHeaders = new HttpHeaders();
-		 responseHeaders.set("Access-Control-Allow-Origin","*");
+		 
+		 
 	        return new ResponseEntity<String>(HttpStatus.CREATED);
 	    }
 	
@@ -65,10 +68,17 @@ public class ReviewController {
 		return u;
 	}
 		@RequestMapping(method=RequestMethod.DELETE, value="/reviews/{id}")
+		
 	@ResponseBody
+	@CrossOrigin(origins="http://localhost:4200")
 	public boolean deleteReviewById(@PathVariable("id")int id) {
+			HttpHeaders responseHeaders = new HttpHeaders();
+
+		    responseHeaders.set("Access-Control-Allow-Origin", "*");
 			service.deleteReviewById(id);
+		
 			
+			 
 	return true;
 	}
 	
