@@ -8,6 +8,8 @@ import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.hibernate.Transaction;
+
+import com.revature.exceptions.UserNotFoundException;
 import com.revature.models.Users;
 
 public class UserDaoImpl implements UserDao{
@@ -48,6 +50,7 @@ public class UserDaoImpl implements UserDao{
 				Query<Users> p = s.createQuery(hql, Users.class);
 				p.setParameter("id", userid);
 				Users e = p.getSingleResult();
+				
 				return e;
 			}
 		}

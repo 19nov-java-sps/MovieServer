@@ -1,6 +1,8 @@
+import com.revature.models.Favorites;
 import com.revature.models.Movies;
 import com.revature.models.Reviews;
 import com.revature.models.Users;
+import com.revature.services.FavoriteService;
 import com.revature.services.MovieService;
 import com.revature.services.ReviewService;
 import com.revature.services.UserService;
@@ -14,8 +16,19 @@ public static void main(String [] args) throws SQLException {
 	UserService userservice= new UserService();
 	
 	ReviewService reservice= new ReviewService();
-	Users Jia = new Users("Jia","Li","Jli@aol.com","pass");
+	Users Jia = new Users("Pablo","Escobar","P3@aol.com","pass");
 	
+	/*
+	FavoriteService fav= new FavoriteService();
+	
+	System.out.print(fav.FavoritesById(33));
+	/*
+	Favorites d= new Favorites(2, 33, "Pedro");
+	fav.addFavorite(d);
+	
+	*/
+	
+	//userservice.createAccount(Jia);
 	
 	
 	//System.out.print(userservice.Login("Bucci490@hotmail.com", "1234"));
@@ -41,7 +54,7 @@ public static void main(String [] args) throws SQLException {
 	//System.out.print(mvservice.getMovieById(1));
 	//mvservice.addMovie(Pedro);
 	
-reservice.editReview(2, "Harry Potter and the Deathly Hollows", "Damn Good", "Harry Potter 4");
+//reservice.editReview(2, "Harry Potter and the Deathly Hollows", "Damn Good", "Harry Potter 4");
 
 }
 }

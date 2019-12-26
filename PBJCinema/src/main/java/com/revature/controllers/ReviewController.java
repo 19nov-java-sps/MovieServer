@@ -64,7 +64,10 @@ public class ReviewController {
 		@RequestMapping(method=RequestMethod.POST, value="/reviews/{id}")
 	@ResponseBody
 	public boolean deleteReviewById(@PathVariable("id")int id) {
-		service.deleteReviewById(id);
+			Reviews u =service.getReviewsById(id);
+			if(u == null) {
+				throw new ReviewNotFoundException();
+			}
 	return true;
 	}
 	
