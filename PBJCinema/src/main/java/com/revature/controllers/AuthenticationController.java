@@ -16,7 +16,7 @@ import com.revature.services.UserService;
 
 
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins="localhost:4200")
 @Controller
 public class AuthenticationController {
 	
@@ -26,6 +26,7 @@ public class AuthenticationController {
 	private UserService service;
 	
 
+@CrossOrigin(origins="localhost:4200")
 	 @RequestMapping(value = "/login", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
     public HttpHeaders login(@RequestBody Users user) throws SQLException 
     {
@@ -40,11 +41,11 @@ public class AuthenticationController {
 		if(u!=null) {
 			String token = u.getUserId()+":"+u.isAdmin();
 			  responseHeaders.set("Authorization",token);
-			  responseHeaders.set("Access-Control-Allow-Origin","*");
+			  
 		;
 			  
 System.out.print(token);
-			
+	
 		}
 	
 return responseHeaders;
