@@ -111,10 +111,10 @@ public class UserDaoImpl implements UserDao{
 	
 		}
 		@Override
-		public Users Login(String email, String password) throws SQLException {
+		public Users Login(String email, String password, boolean isBanned) throws SQLException {
 		
 		try(Session s = HibernateUtil.getSession()){
-					String hql = "from Users where emailAddress = :email and pass= :pass";
+					String hql = "from Users where emailAddress = :email and pass= :pass and isBanned=false";
 					Query<Users> q = s.createQuery(hql,Users.class);
 					q.setParameter("email", email);
 					q.setParameter("pass", password);

@@ -29,8 +29,8 @@ public class UserService {
 	public boolean updateUser(int userid, String email, String password, String firstName, String lastName) {
 		return service.updateUser(userid, email, password, firstName, lastName);
 	}
-	public Users Login(String email, String password) throws SQLException{
-		return service.Login(email, password);
+	public Users Login(String email, String password, boolean isBanned) throws SQLException{
+		return service.Login(email, password, isBanned);
 	}
 	
 	

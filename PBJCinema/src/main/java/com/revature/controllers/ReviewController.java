@@ -39,10 +39,10 @@ public class ReviewController {
 	
 
 
-	 @RequestMapping(value = "/reviews", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
-	    public ResponseEntity<String> editReview(@RequestBody Reviews review) 
+	 @RequestMapping(value = "/reviews/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
+	    public ResponseEntity<String> editReview(@PathVariable("id")int id,@RequestBody Reviews review) 
 	    {
-	 int id= review.getReviewId();
+	
 	 String postBody= review.getPostBody();
 	 String postTitle= review.getPostTitle();
 	 String movieTitle=review.getMovieTitle();
@@ -61,13 +61,11 @@ public class ReviewController {
 		}
 		return u;
 	}
-		@RequestMapping(method=RequestMethod.POST, value="/reviews/{id}")
+		@RequestMapping(method=RequestMethod.DELETE, value="/reviews/{id}")
 	@ResponseBody
 	public boolean deleteReviewById(@PathVariable("id")int id) {
-			Reviews u =service.getReviewsById(id);
-			if(u == null) {
-				throw new ReviewNotFoundException();
-			}
+			service.deleteReviewById(id);
+			
 	return true;
 	}
 	
