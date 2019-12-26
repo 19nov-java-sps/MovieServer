@@ -3,6 +3,7 @@ package com.revature.controllers;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,8 @@ import com.revature.models.Users;
 import com.revature.services.UserService;
 
 @RestController
-@CrossOrigin(origins="localhost:4200")
+
+@CrossOrigin(origins="http://localhost:4200",maxAge = 3600)
 public class UserController {
 
 	
@@ -85,7 +87,10 @@ public class UserController {
 			 
 service.updateUser(id,user.getEmailAddress(), user.getPassword(), user.getFirstName(), user.getLastName());
 	
-	
+
+HttpHeaders responseHeaders = new HttpHeaders();
+
+    responseHeaders.setAccessControlAllowOrigin("localhost:4200");
 	
 }
 
