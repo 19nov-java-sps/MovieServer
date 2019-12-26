@@ -2,6 +2,7 @@ package com.revature.controllers;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ import com.revature.services.ReviewService;
 
 
 @Controller
-@CrossOrigin
+@CrossOrigin(origins="localhost:4200")
 public class ReviewController {
 
 	@Autowired
@@ -48,6 +49,8 @@ public class ReviewController {
 	 String movieTitle=review.getMovieTitle();
 	
 		 service.editReview(id,postTitle,postBody, movieTitle);
+		 HttpHeaders responseHeaders = new HttpHeaders();
+		 responseHeaders.set("Access-Control-Allow-Origin","*");
 	        return new ResponseEntity<String>(HttpStatus.CREATED);
 	    }
 	
