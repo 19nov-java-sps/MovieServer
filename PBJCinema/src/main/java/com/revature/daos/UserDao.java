@@ -14,8 +14,9 @@ public interface UserDao {
 	public int deleteUserById(int userId);
 	public Users getUserById(int userId);
 	//boolean updateUser(int userid, String email, String password);
-	public Users Login(String email, String password) throws SQLException;
+	//public Users Login(String email, String password) throws SQLException;
 	public boolean updateUser(int userid, String email, String password, String firstName, String lastName);
+	public Users Login(String email, String password, boolean isBanned) throws SQLException;
 	
 	
 	

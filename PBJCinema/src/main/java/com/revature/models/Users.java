@@ -18,11 +18,33 @@ public class Users {
 	
 	
 	
+	private boolean isBanned=false;
 	
 	
 	
 	
-	
+	public Users(int userId, boolean isBanned, String firstName, String lastName, String emailAddress, String password,
+			boolean isAdmin) {
+		super();
+		this.userId = userId;
+		this.isBanned = isBanned;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.emailAddress = emailAddress;
+		this.password = password;
+		this.isAdmin = isAdmin;
+	}
+
+	public boolean isBanned() {
+		return isBanned;
+	}
+
+	public void setBanned(boolean isBanned) {
+		this.isBanned = isBanned;
+	}
+
+
+
 	private String firstName;
 	
 	
@@ -43,7 +65,7 @@ public class Users {
 	private boolean isAdmin;
 	
 	public Users() {
-		
+		super();
 	}
 	
 	public Users(String firstName, String lastName, String emailAddress, String password) {

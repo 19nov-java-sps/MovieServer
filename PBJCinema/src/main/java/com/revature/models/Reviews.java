@@ -30,8 +30,9 @@ private String postBody;
 
 private String movieTitle;
 public Reviews() {
-	
+	super();
 }
+
 
 
 @Override
@@ -107,17 +108,24 @@ public String getPostBody() {
 public void setPostBody(String postBody) {
 	this.postBody = postBody;
 }
-public Reviews(int movieId, String postTitle, String postBody) {
-	super();
-	this.movieId = movieId;
-	this.postTitle = postTitle;
-	this.postBody = postBody;
-}
+
 public Reviews(int reviewId, int movieId, int userId, String postTitle, String postBody, String movieTitle) {
 	super();
 	this.reviewId = reviewId;
 	this.movieId = movieId;
 	this.userId = userId;
+	this.postTitle = postTitle;
+	this.postBody = postBody;
+	this.movieTitle=movieTitle;
+}
+
+
+
+
+
+public Reviews(int reviewId, String postTitle, String postBody, String movieTitle) {
+	super();
+	this.reviewId = reviewId;
 	this.postTitle = postTitle;
 	this.postBody = postBody;
 	this.movieTitle=movieTitle;
